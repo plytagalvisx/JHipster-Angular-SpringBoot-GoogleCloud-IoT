@@ -1,4 +1,4 @@
-/* after changing this file run 'npm run webpack:build' */
+/* after changing this file run 'yarn run webpack:build' */
 /* tslint:disable */
 import '../content/scss/vendor.scss';
 
@@ -39,7 +39,9 @@ import {
     faTrashAlt,
     faAsterisk,
     faTasks,
-    faHome
+    faHome,
+    faStar,
+    faCheck
 } from '@fortawesome/free-solid-svg-icons';
 
 // Adds the SVG icon to the library so you can use it in your page
@@ -51,6 +53,7 @@ library.add(faSync);
 library.add(faEye);
 library.add(faBan);
 library.add(faTimes);
+library.add(faCheck);
 library.add(faArrowLeft);
 library.add(faSave);
 library.add(faPlus);
@@ -77,5 +80,7 @@ library.add(faCalendarAlt);
 library.add(faSearch);
 library.add(faTrashAlt);
 library.add(faAsterisk);
+library.add(faStar);
+library.add(faCalendarAlt);
 
 // jhipster-needle-add-element-to-vendor - JHipster will add new menu items here

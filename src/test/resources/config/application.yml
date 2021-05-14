@@ -48,7 +48,7 @@ spring:
         elasticsearch:
             properties:
                 path:
-                    home: target/elasticsearch
+                    home: build/elasticsearch
     liquibase:
         contexts: test
     mail:
@@ -60,7 +60,6 @@ spring:
             enabled: false
     thymeleaf:
         mode: HTML
-
 
 server:
     port: 10344
@@ -95,7 +94,7 @@ jhipster:
         authentication:
             jwt:
                 # This token must be encoded using Base64 (you can type `echo 'secret-key'|base64` on your command line)
-                base64-secret: NWNjMTgzODBlOTMzYTQ0N2MxYmViNzMzN2E5YTllYWNhYjA0NzliNmNkNDVmMjkxZmQ1NTAzYWNjZGI2ZGJiM2Q1NjdhNzA4ZDFkNmUzOGI5M2RlYTAyM2UzMmNjNDI5NzY3NmNlZDUxYTM5MjJmZmJkOGI1MTg0MmRiZDhiZDU=
+                base64-secret: SSB3YXMgb25jZSBsb3N0LCBidXQgbm93IEknbSBmb3VuZCEgSW4gSXJlbGFuZCwgd2l0aCBhIEd1aW5uZXNzLiA6KQ==
                 # Token is valid 24 hours
                 token-validity-in-seconds: 86400
     metrics: # DropWizard Metrics configuration, used by MetricsConfiguration

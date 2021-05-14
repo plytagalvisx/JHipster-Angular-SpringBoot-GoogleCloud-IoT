@@ -216,6 +216,80 @@ ui bootstrap tweaks
     outline: none;
 }
 
+/* ==========================================================================
+custom styles for 21-Points Health
+========================================================================== */
+.jh-card {
+    border: none !important;
+}
+
+.jh-navbar {
+    background-color: #009688 !important;
+}
+
+.blockquote {
+    padding: 0.5rem 1rem;
+    margin-bottom: 1rem;
+    font-size: 1rem !important;
+    font-weight: 100;
+    border-left: 0.25rem solid #eceeef;
+}
+
+a {
+    font-weight: normal !important;
+}
+
+.truncate {
+    width: 180px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    cursor: pointer;
+
+    &.cal-day-notes {
+        width: 150px;
+    }
+}
+
+.footer {
+    bottom: 0;
+    left: 0;
+    color: #666;
+    background: #eee;
+    border-top: 1px solid silver;
+    position: fixed;
+    width: 100%;
+    padding: 10px;
+    padding-bottom: 0;
+    text-align: center;
+    z-index: 2;
+    font-size: 0.9em;
+
+    p {
+        margin-bottom: 7px;
+    }
+}
+
+.heart {
+    display: inline-block;
+    width: 347px;
+    height: 347px !important;
+    background: url('../images/21-points-logo.png') no-repeat center top;
+    background-size: contain;
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2),
+    only screen and (min--moz-device-pixel-ratio: 2),
+    only screen and (-o-min-device-pixel-ratio: 2/1),
+    only screen and (min-device-pixel-ratio: 2),
+    only screen and (min-resolution: 192dpi),
+    only screen and (min-resolution: 2dppx) {
+    .heart {
+        background: url('../images/21-points-logo2x.png') no-repeat center top;
+        background-size: contain;
+    }
+}
+
 .thread-dump-modal-lock {
     max-width: 450px;
     overflow: hidden;
@@ -223,4 +297,11 @@ ui bootstrap tweaks
     white-space: nowrap;
 }
 
+/* Override Bootstrap's default vertical-align: top */
+.table {
+    th,
+    td {
+        vertical-align: middle !important;
+    }
+}
 /* jhipster-needle-scss-add-main JHipster will add new css style */
