@@ -36,6 +36,15 @@
     "languages": [
       "en",
       "fr"
-    ]
+    ],
+    "gcpProjectId": "jhipsterangularspringbootapp",
+    "gcpCloudSqlInstanceName": "jhipsterangularspringbootapp:europe-west3:jhipster\n",
+    "gcpCloudSqlUserName": "root",
+    "gaeServiceName": "default",
+    "gaeLocation": "europe-west3",
+    "gaeInstanceClass": "F2",
+    "gaeScalingType": "automatic",
+    "gaeMinInstances": "1",
+    "gaeMaxInstances": "1"
   }
 }
