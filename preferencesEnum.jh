@@ -1,0 +1,8 @@
+entity Preferences {
+	weeklyGoal Integer required min(10) max(21),
+	weightUnits Units required
+}
+
+enum Units {
+    KG, LB
+}
