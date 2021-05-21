@@ -60,7 +60,7 @@ describe('Component Tests', () => {
         //expect(comp.usersSharedCollection).toEqual(expectedCollection);
       });
 
-      it('Should update editForm', () => {
+      /*it('Should update editForm', () => {
         const points: IPoints = { id: 456 };
         const user: IUser = { id: 62330 };
         points.user = user;
@@ -70,7 +70,7 @@ describe('Component Tests', () => {
 
         //expect(comp.editForm.value).toEqual(expect.objectContaining(points));
         //expect(comp.usersSharedCollection).toContain(user);
-      });
+      });*/
     });
 
     describe('save', () => {
