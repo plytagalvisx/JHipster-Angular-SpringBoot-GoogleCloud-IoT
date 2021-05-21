@@ -1,0 +1,128 @@
+<div>
+  <h2 id="page-heading" data-cy="PointsHeading">
+    <span jhiTranslate="twentyOnePointsApp.points.home.title">Points</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info mr-2" (click)="loadPage()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="twentyOnePointsApp.points.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-points"
+        [routerLink]="['/points/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="twentyOnePointsApp.points.home.createLabel"> Create a new Points </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="points?.length === 0">
+    <span jhiTranslate="twentyOnePointsApp.points.home.notFound">No points found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="points && points.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+          <th scope="col" jhiSortBy="date">
+            <span jhiTranslate="twentyOnePointsApp.points.date">Date</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="exercise">
+            <span jhiTranslate="twentyOnePointsApp.points.exercise">Exercise</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="meals">
+            <span jhiTranslate="twentyOnePointsApp.points.meals">Meals</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="alcohol">
+            <span jhiTranslate="twentyOnePointsApp.points.alcohol">Alcohol</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="notes">
+            <span jhiTranslate="twentyOnePointsApp.points.notes">Notes</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="user.login">
+            <span jhiTranslate="twentyOnePointsApp.points.user">User</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let points of points; trackBy: trackId" data-cy="entityTable">
+          <td class="text-nowrap">
+            <a [routerLink]="['/points', points.id, 'view']">{{ points.date | formatMediumDate }}</a>
+          </td>
+          <td class="text-center">
+            <fa-icon
+              [icon]="points.exercise ? 'check' : 'times'"
+              aria-hidden="true"
+              class="{{ points.exercise ? 'text-success' : 'text-danger' }}"
+            ></fa-icon>
+          </td>
+          <td class="text-center">
+            <fa-icon
+              [icon]="points.meals ? 'check' : 'times'"
+              aria-hidden="true"
+              class="{{ points.meals ? 'text-success' : 'text-danger' }}"
+            ></fa-icon>
+          </td>
+          <td class="text-center">
+            <fa-icon
+              [icon]="points.alcohol ? 'check' : 'times'"
+              aria-hidden="true"
+              class="{{ points.alcohol ? 'text-success' : 'text-danger' }}"
+            ></fa-icon>
+          </td>
+          <td>
+            <div class="truncate" [ngbPopover]="points.notes">{{ points.notes }}</div>
+          </td>
+          <td>
+            {{ points.user?.login }}
+          </td>
+          <td class="text-right">
+            <div class="btn-group">
+              <button type="submit" [routerLink]="['/points', points.id, 'view']" class="btn btn-info btn-sm" data-cy="entityDetailsButton">
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button type="submit" [routerLink]="['/points', points.id, 'edit']" class="btn btn-primary btn-sm" data-cy="entityEditButton">
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(points)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="points && points.length > 0">
+    <div class="row justify-content-center">
+      <jhi-item-count [params]="{ page: page, totalItems: totalItems, itemsPerPage: itemsPerPage }"></jhi-item-count>
+    </div>
+
+    <div class="row justify-content-center">
+      <ngb-pagination
+        [collectionSize]="totalItems"
+        [(page)]="ngbPaginationPage"
+        [pageSize]="itemsPerPage"
+        [maxSize]="5"
+        [rotate]="true"
+        [boundaryLinks]="true"
+        (pageChange)="loadPage($event)"
+      ></ngb-pagination>
+    </div>
+  </div>
+</div>

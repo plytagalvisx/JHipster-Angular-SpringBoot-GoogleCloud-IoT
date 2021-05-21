@@ -41,6 +41,19 @@
     "jwtSecretKey": "YmUwYjY0OGI3OTkzMzEzNjMyZjViMDZiNjBmMzA0YTJmMmIyZjdlODk5YWIzZDJjYzllZWY3ZTUyOTdmNjU0OTExN2RlZTYwNGE2YjRiYzcxZGY0NTQyZDlmY2FlZTJkOGJiYjhhNDQ4YTQ1MWVhZGE3YTNlYTgyZjQwYTUxOGQ=",
     "clientPackageManager": "npm",
     "clientThemeVariant": "",
-    "languages": ["en", "fr"]
+    "languages": ["en", "fr"],
+    "lastLiquibaseTimestamp": 1621605048000,
+    "entities": ["Points", "Weight", "BloodPressure", "Preferences"],
+    "gcpProjectId": "jhipsterangularspringbootapp",
+    "gcpCloudSqlInstanceName": "jhipsterangularspringbootapp:europe-west3:jhipstercloudpostgresql",
+    "gcpCloudSqlUserName": "root",
+    "gcpCloudSqlDatabaseName": "postgres",
+    "gaeServiceName": "twenty-one-points",
+    "gaeLocation": "europe-west3",
+    "gaeInstanceClass": "F2",
+    "gaeScalingType": "automatic",
+    "gaeMinInstances": "1",
+    "gaeMaxInstances": "1",
+    "gaeCloudSQLInstanceNeeded": "Y"
   }
 }

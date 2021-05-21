@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpResponse } from '@angular/common/http';
 import { TranslateService } from '@ngx-translate/core';
 import { SessionStorageService } from 'ngx-webstorage';
 import { Observable, ReplaySubject, of } from 'rxjs';
@@ -24,6 +24,10 @@ export class AccountService {
     private router: Router,
     private applicationConfigService: ApplicationConfigService
   ) {}
+
+  get(): Observable<HttpResponse<Account>> {
+    return this.http.get<Account>(String(process.env.SERVER_API_URL) + 'api/account', { observe: 'response' });
+  }
 
   save(account: Account): Observable<{}> {
     return this.http.post(this.applicationConfigService.getEndpointFor('api/account'), account);

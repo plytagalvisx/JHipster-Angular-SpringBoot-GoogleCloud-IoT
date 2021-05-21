@@ -3,10 +3,15 @@
     "title": "TwentyOnePoints",
     "browsehappy": "You are using an <strong>outdated</strong> browser. Please <a href=\"http://browsehappy.com/?locale=en\">upgrade your browser</a> to improve your experience.",
     "menu": {
+      "iot": "IoT Results",
       "home": "Home",
       "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
       "entities": {
         "main": "Entities",
+        "points": "Points",
+        "weight": "Weight",
+        "bloodPressure": "Blood Pressure",
+        "preferences": "Preferences",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {
@@ -137,5 +142,5 @@
       "not.image": "File was expected to be an image but was found to be \"{{ fileType }}\""
     }
   },
-  "footer": "This is your footer"
+  "footer": "<strong>21-Points Health</strong> | An application developed for a better life and <a href='http://www.jhipster-book.com' target='_blank'>The JHipster Mini-Book</a> | By <a href='http://raibledesigns.com' target='_blank'>Matt Raible</a>"
 }

@@ -1,0 +1,39 @@
+{
+  "name": "Preferences",
+  "fields": [
+    {
+      "fieldName": "weeklyGoal",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["required", "min", "max"],
+      "fieldValidateRulesMin": "10",
+      "fieldValidateRulesMax": "21"
+    },
+    {
+      "fieldName": "weightUnits",
+      "fieldType": "Units",
+      "fieldValues": "KG,LB",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipName": "user",
+      "otherEntityName": "user",
+      "relationshipType": "one-to-one",
+      "otherEntityField": "login",
+      "ownerSide": true,
+      "id": false,
+      "otherEntityRelationshipName": "preferences"
+    }
+  ],
+  "entityTableName": "preferences",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20210521135048"
+}
