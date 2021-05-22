@@ -1,8 +1,12 @@
 # TwentyOnePoints
 
+This repository contains the code for the degree project in II142X, which is a modern web application used for determining the effect of using JHipster development platform for teaching in the course II1302.
+
+The project is built using Angular JS as the frontend framework, which focuses on the Model-Module-Component-Service-View paradigm. Spring Boot is used as the backend framework for the server, which in turn uses CRUD REST APIs to handle HTTP requests/responses from the frontend. PostgreSQL is used as the database type for handling client data and integration of the database in this project.
+
 This application was generated using JHipster 7.0.1, you can find documentation and help at [https://www.jhipster.tech/documentation-archive/v7.0.1](https://www.jhipster.tech/documentation-archive/v7.0.1).
 
-## Development
+## Development 
 
 Before you can build this project, you must install and configure the following dependencies on your machine:
 
@@ -31,6 +35,24 @@ specifying a newer version in [package.json](package.json). You can also run `np
 Add the `help` flag on any command to see how you can use it. For example, `npm help update`.
 
 The `npm run` command will list all of the scripts available to run for this project.
+
+### Deployment (Google Cloud Platform)
+
+The web application is deplyoed on a Google Cloud platform (GCP) on Google App Engine (GAE) using Cloud SDK inside a terminal of MacOS. The commands used to connect the web application to Cloud SQL instance and then deploy the current version of the web application to GAE are:
+
+To connect to cloud SQL:
+```bash
+jhipster gae
+```
+To deploy to GAE:
+```bash
+./mvnw package appengine:deploy -DskipTests -Pgae,prod,prod-gae
+```
+When the web application is deployed it can be viewed on the GCP webpage; https://twenty-one-points-dot-jhipsterangularspringbootapp.ey.r.appspot.com/ for as long as the GCP services are actively running and are enabled. The webpage won't be active once the Cloud services are disabled from the GCP project.
+
+### Cloud IoT device Connection
+
+The management of Cloud IoT Core and Cloud PubSub API is handled accordingly by creating a device registry and connecting a simulated device to it as well as creating a topic and a subsription for the created simulated IoT device. The SQL query to Cloud postgreSQL database is handled by Cloud Function method which is triggered once the device sends a sensor data, but since the IoT device is simulated the quality and functionality of the Cloud Function method is tested manually by selecting the "TEST THE FUNCTION" button inside the Cloud Function navigation page in the created and deployed function/method page.
 
 ### PWA Support
 
@@ -173,7 +195,7 @@ If you need to re-run the Sonar phase, please be sure to specify at least the `i
 
 For more information, refer to the [Code quality page][].
 
-## Using Docker to simplify development (optional)
+## Using Docker to simplify local development
 
 You can use Docker to improve your JHipster development experience. A number of docker-compose configuration are available in the [src/main/docker](src/main/docker) folder to launch required third party services.
 
@@ -204,9 +226,13 @@ docker-compose -f src/main/docker/app.yml up -d
 
 For more information refer to [Using Docker and Docker-Compose][], this page also contains information on the docker-compose sub-generator (`jhipster docker-compose`), which is able to generate docker configurations for one or several JHipster applications.
 
-## Continuous Integration (optional)
+## Continuous Integration (GitHub Actions)
 
-To configure CI for your project, run the ci-cd sub-generator (`jhipster ci-cd`), this will let you generate configuration files for a number of Continuous Integration systems. Consult the [Setting up Continuous Integration][] page for more information.
+To configure CI for your project, run the ci-cd sub-generator (`jhipster ci-cd`), this will let you generate configuration files for a number of Continuous Integration systems. 
+
+CI/CD integration in the web application is sub-generated to use GitHub Actions. The tasks used on GitHub are manually configured and edited inside the GitHub Actions workflow directory. The configuration files are defined as *.yml files inside the .github/workflows/ directory in the project.
+
+Consult the [Setting up Continuous Integration][] page for more information.
 
 [jhipster homepage and latest documentation]: https://www.jhipster.tech
 [jhipster 7.0.1 archive]: https://www.jhipster.tech/documentation-archive/v7.0.1
