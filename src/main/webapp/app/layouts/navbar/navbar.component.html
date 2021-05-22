@@ -27,13 +27,6 @@
         </a>
       </li>
       <!-- jhipster-needle-add-element-to-menu - JHipster will add new menu items here -->
-      <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
-        <a class="nav-link" routerLink="iotresults" (click)="collapseNavbar()">
-          <span>
-            <span jhiTranslate="global.menu.iot">IoT Results</span>
-          </span>
-        </a>
-      </li>
       <li
         *ngSwitchCase="true"
         ngbDropdown
